@@ -5,7 +5,7 @@ Add `onUserStartsTyping` and `onUserStopsTyping` events to your slate editor.
 ## Install
 
 ```
-yarn add @flaque/use-slate-lifecycle
+yarn add use-slate-lifecycle
 ```
 
 ## Usage
@@ -32,7 +32,7 @@ Full example:
 
 ```jsx
 import { Editor } from "slate-react";
-import useSlateLifecycle from "@flaque/use-slate-lifecycle";
+import useSlateLifecycle from "use-slate-lifecycle";
 
 function MyEditor = () => {
   function onUserStartsTyping(change) {
