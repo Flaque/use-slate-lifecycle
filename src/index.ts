@@ -15,7 +15,7 @@ export default function useSlateLifecycle({
 }) {
   const [isTyping, setIsTyping] = useState(false);
   const [setTimeoutHook, clearTimeoutHook] = useTimeout();
-  const [recentValue, setRecentValue] = useState<Value>(null);
+  const [recentValue, setRecentValue] = useState<Value>();
 
   const onChange: OnChangeFn = change => {
     if (!isTyping) {
