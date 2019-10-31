@@ -14,7 +14,7 @@ yarn add use-slate-lifecycle
 in your `onChange` function like this:
 
 ```jsx
-const [withLifeCycle] = useSlateLifecycle({
+const [ withLifeCycle ] = useSlateLifecycle({
   onUserStartsTyping: () => {},
   onUserStopsTyping: () => {}
 });
@@ -43,7 +43,7 @@ function MyEditor = () => {
       console.log("stops typing")
   }
 
-  const [withLifeCycle] = useSlateLifecycle({
+  const [ withLifeCycle ] = useSlateLifecycle({
     onUserStartsTyping,
     onUserStopsTyping
   });
