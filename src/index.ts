@@ -9,8 +9,8 @@ export default function useSlateLifecycle({
   onUserStopsTyping,
   timeout
 }: {
-  onUserStartsTyping: (change?: OnChangeParam) => any;
-  onUserStopsTyping: (change?: OnChangeParam) => any;
+  onUserStartsTyping?: (change: OnChangeParam) => any;
+  onUserStopsTyping?: (change: OnChangeParam) => any;
   timeout?: number;
 }) {
   const [isTyping, setIsTyping] = useState(false);
@@ -32,7 +32,9 @@ export default function useSlateLifecycle({
         return;
       }
 
-      onUserStartsTyping(change);
+      if (onUserStartsTyping) {
+        onUserStartsTyping(change);
+      }
       setIsTyping(true);
       setRecentValue(change.value);
       return;
@@ -41,7 +43,9 @@ export default function useSlateLifecycle({
     clearTimeoutHook();
 
     setTimeoutHook(() => {
-      onUserStopsTyping(change);
+      if (onUserStopsTyping) {
+        onUserStopsTyping(change);
+      }
       setIsTyping(false);
     }, timeout || 500);
   };
