@@ -26,7 +26,13 @@ export default function useSlateLifecycle({
       }
 
       // If we're just focusing the editor, we don't need to do anything, that's not typing.
-      const ops = change.operations.toArray().map(e => e.get("type"));
+      const ops = change.operations
+        .map(op => {
+          if (!op) return null;
+          op["type"];
+        })
+        .filter(n => !!n);
+
       if (isEqual(ops, ["set_selection"])) {
         setRecentValue(change.value);
         return;
